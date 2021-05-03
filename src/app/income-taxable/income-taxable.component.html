@@ -1,0 +1,95 @@
+
+<div class="card my-5">
+    <div class="card-body">
+        <form #taxForm="ngForm"  (ngSubmit)="fetch(taxForm.value);taxForm.reset()">
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" name="year" id="year" placeholder="Enter tax year" required ngModel >
+            </div>
+            <div class="form-group">
+                <label for="year">Age</label>
+                <input type="text" class="form-control" name="age" id="age" placeholder="Enter your age" required ngModel >
+            </div>
+            <div class="form-group">
+                <input type="radio" value="Monthly" name="period" ngModel>Monthly 
+                <input type="radio" value="Annual" name="period" ngModel>Annual                
+            </div>             
+            <div class="form-group">
+                <label for="year">Taxable Amount</label>
+                <input type="text" class="form-control" name="amount" id="amount" placeholder="Enter amount" required ngModel >
+            </div> 
+            <div class="form-group">
+                <label for="year">Medical Aid Members</label>
+                <input type="text" class="form-control" name="members" id="members" placeholder="Enter Members" required ngModel >
+            </div>  
+            <button type="submit" [disabled]="!taxForm.form.valid" 
+            class="btn btn-info">Submit</button>
+        </form>
+    </div>
+<div>
+</div>
+</div>
+
+  <div class="card my-5">
+    <div class="card-body">
+    <h5 class="card-title">Taxable Amount Results</h5>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">PAYE</th>
+            <th scope="col">Tax Credit</th>
+            <th scope="col">PAYE Due</th>
+            <th scope="col">Net Cash</th>
+          </tr>
+        </thead>
+        <tbody>  
+          <tr>        
+            <td>{{ taxOut.paye }}</td>
+            <td>{{ taxOut.taxCredit }}</td>
+            <td>{{ taxOut.payeDue }}</td>
+            <td>{{ taxOut.netCash }}</td>            
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+<!--
+     {{taxOut.paye}}{{taxOut.taxCredit}}{{taxOut.payeDue}}{{taxOut.netCash}}
+<h2>income-taxable works</h2>
+<div>
+    <form #taxForm="ngForm"  (ngSubmit)="fetch(taxForm.value)">
+        <table>        
+            <tr>           
+                <label>Year</label>
+                <input type ="text" name="year" id="year" placeholder="Enter tax year" ngModel />
+            </tr>
+            <tr>            
+                <label>Age</label>
+                <input type ="text" name="age" id="age" placeholder="Enter your age" ngModel />
+            </tr>
+            <tr>            
+                <label><input type="radio" name="period" value="true" ngModel />Monthly Tax</label>
+                <label><input type="radio" name="period" value="false" ngModel />Annual Tax</label>
+            </tr>
+            <tr>            
+                <label>Amount</label>
+                <input type ="text" name="amount" id="amount" placeholder="Enter amount" ngModel />
+            </tr>
+            <tr>            
+                <label>Med Dependencies</label>
+                <input type ="text" name="dep" id="age" placeholder="Enter Medical Dep" ngModel />
+            </tr>
+            <tr>
+               
+            </tr>
+        </table>
+        <div> <input type="submit" value="calculate"></div>
+        
+    </form>
+    
+    <div>
+<div>
+    {{taxOut.paye}}{{taxOut.taxCredit}}{{taxOut.payeDue}}{{taxOut.netCash}}
+</div>
+-->
